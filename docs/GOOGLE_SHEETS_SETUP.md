@@ -24,7 +24,7 @@ This guide will help you set up Google Sheets to store form submissions from you
 
 1. In your Google Sheet, click **Extensions** → **Apps Script**
 2. Delete any default code in the editor
-3. Copy and paste the code from `google-apps-script.js` (provided below)
+3. Copy and paste the code from `scripts/google-apps-script.js` (provided below)
 4. Click **Save** (💾 icon) and give your project a name like "VIP List Form Handler"
 
 ## Step 3: Deploy as Web App
@@ -41,7 +41,7 @@ This guide will help you set up Google Sheets to store form submissions from you
 
 ## Step 4: Update Your HTML Form
 
-1. Open `script.js` in your project
+1. Open `js/script.js` in your project
 2. Find the line that says: `const GOOGLE_SCRIPT_URL = 'YOUR_WEB_APP_URL_HERE';`
 3. Replace `YOUR_WEB_APP_URL_HERE` with the Web App URL you copied in Step 3
 4. Save the file
@@ -58,7 +58,7 @@ This guide will help you set up Google Sheets to store form submissions from you
 ### Data not appearing in sheet?
 - Make sure you set "Who has access" to **Anyone** in Step 3
 - Check the browser console (F12) for any error messages
-- Verify the Web App URL is correct in `script.js`
+- Verify the Web App URL is correct in `js/script.js`
 
 ### Permission errors?
 - Make sure you authorized the script when prompted

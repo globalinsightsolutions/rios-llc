@@ -225,7 +225,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function sendToGoogleSheets(formData, consentRecord) {
         // Check if Google Script URL is configured
         if (GOOGLE_SCRIPT_URL === 'YOUR_WEB_APP_URL_HERE') {
-            console.warn('Google Sheets integration not configured. Please set GOOGLE_SCRIPT_URL in script.js');
+            console.warn('Google Sheets integration not configured. Please set GOOGLE_SCRIPT_URL in js/script.js');
             return;
         }
 

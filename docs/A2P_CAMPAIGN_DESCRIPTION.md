@@ -194,13 +194,13 @@ RIOS LLC: Your VIP account preferences have been updated. View your account: [li
    - No login required
    - Contains full consent form
 
-2. **Terms of Service:** `terms-of-service.html`
+2. **Terms of Service:** `legal/terms-of-service.html`
    - Publicly accessible
    - Documents SMS program terms
    - Includes opt-out instructions
    - Includes customer care information
 
-3. **Privacy Policy:** `privacy-policy.html`
+3. **Privacy Policy:** `legal/privacy-policy.html`
    - Publicly accessible
    - Documents privacy practices
    - Explains data collection and use

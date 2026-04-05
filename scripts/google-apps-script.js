@@ -4,10 +4,10 @@
  * This script receives form data via POST request and writes it to a Google Sheet
  * 
  * SETUP INSTRUCTIONS:
- * 1. Create a Google Sheet with headers in Row 1 (see GOOGLE_SHEETS_SETUP.md)
+ * 1. Create a Google Sheet with headers in Row 1 (see docs/GOOGLE_SHEETS_SETUP.md)
  * 2. Copy this entire script into Google Apps Script editor
  * 3. Deploy as Web App with "Anyone" access
- * 4. Copy the Web App URL and use it in script.js
+ * 4. Copy the Web App URL and use it in js/script.js
  */
 
 function doPost(e) {

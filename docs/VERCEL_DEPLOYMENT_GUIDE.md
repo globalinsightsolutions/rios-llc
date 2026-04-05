@@ -172,7 +172,7 @@ Since you're using `rios-llc.com`, you may want to update email references to ma
 
 ### Update Google Sheets Script URL
 
-Make sure your `GOOGLE_SCRIPT_URL` in `script.js` is still correct (it should be fine).
+Make sure your `GOOGLE_SCRIPT_URL` in `js/script.js` is still correct (it should be fine).
 
 ---
 

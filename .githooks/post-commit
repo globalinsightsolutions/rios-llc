@@ -1,0 +1,9 @@
+#!/bin/sh
+# Push to origin after every commit. Enable once per clone:
+#   git config core.hooksPath .githooks
+# Or run: npm install (prepare script sets this for the repo)
+
+command -v git >/dev/null 2>&1 || exit 0
+git remote get-url origin >/dev/null 2>&1 || exit 0
+
+git push origin HEAD

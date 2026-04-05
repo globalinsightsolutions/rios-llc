@@ -176,13 +176,13 @@ After opt-in, user immediately receives an on-page confirmation that includes:
 ## 7. Privacy Policy and Terms
 
 **Privacy Policy:**
-- Publicly accessible at: `privacy-policy.html`
+- Publicly accessible at: `legal/privacy-policy.html` (301 from `/privacy-policy.html` when deployed on Vercel)
 - Documents how phone numbers are collected and used
 - Explains SMS program privacy practices
 - Includes user rights and data retention policies
 
 **Terms of Service:**
-- Publicly accessible at: `terms-of-service.html`
+- Publicly accessible at: `legal/terms-of-service.html` (301 from `/terms-of-service.html` when deployed on Vercel)
 - Documents SMS program terms
 - Includes opt-out instructions
 - Includes customer care contact information

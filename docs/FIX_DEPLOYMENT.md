@@ -30,12 +30,11 @@ You should see: `/Users/ericlaw/Downloads/mags optin page`
 ls -la
 ```
 
-You should see files like:
-- index.html
-- script.js
-- styles.css
-- terms-of-service.html
-- privacy-policy.html
+You should see a structure like:
+- `index.html` (site root)
+- `css/styles.css`, `js/script.js`
+- `legal/terms-of-service.html`, `legal/privacy-policy.html`
+- `docs/` (guides), `scripts/google-apps-script.js`
 - etc.
 
 **NOT** all your Downloads files!

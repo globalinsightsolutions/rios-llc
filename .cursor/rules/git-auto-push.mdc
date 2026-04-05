@@ -1,0 +1,18 @@
+---
+description: Commit and push to origin after making project changes
+alwaysApply: true
+---
+
+# Git: commit and push after changes
+
+Whenever you edit, create, or delete tracked files in this repository as part of the user’s request:
+
+1. **Stage** relevant changes (`git add` for the files you touched, or `git add -A` when appropriate).
+2. **Commit** with a short, imperative message (e.g. `Add legal folder redirects`, `Fix opt-in copy`).
+3. **Push** to `origin` on the current branch (`git push` or `git push origin HEAD`).
+
+**Skip** committing/pushing only if: the user asked not to; there is nothing to commit; or git is unavailable.
+
+**Never** force-push (`--force`) unless the user explicitly requests it. Do not commit ignored secrets (e.g. `.env.local`).
+
+If push fails (auth, network), report the error and leave the commit local.
