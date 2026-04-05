@@ -87,17 +87,24 @@
 
                 <div class="explicit-consent-section">
                     <h3 class="consent-heading">SMS Consent & Authorization</h3>
-                    <p class="consent-intro">To receive text messages, you must provide explicit consent by checking the box below:</p>
+                    <p class="consent-intro">To receive text messages, you must provide explicit consent by checking both boxes below:</p>
                     
                     <div class="consent-group">
-                        <input type="checkbox" id="consent" name="consent" required>
-                        <label for="consent" class="consent-label">
-                            <strong>I EXPLICITLY CONSENT to receive recurring automated marketing and promotional text messages from RIOS LLC</strong> at the phone number I provide above. <strong>Message and data rates may apply.</strong> I understand that I will receive messages about early access to hidden opportunities, exclusive deals, and promotional offers. <strong>Message frequency may vary.</strong> Consent is not a condition of purchase. I can opt-out at any time by replying <strong>STOP</strong> to unsubscribe or <strong>HELP</strong> for help. For customer care, contact us at <a href="mailto:Hello@rioscontact.me" class="care-link">Hello@rioscontact.me</a> or call <a href="tel:+12136630834" class="care-link">(213) 663-0834</a>. For more information, see our <a href="legal/terms-of-service.html" class="care-link">Terms of Service</a> and <a href="legal/privacy-policy.html" class="care-link">Privacy Policy</a>.
+                        <input type="checkbox" id="consentMarketing" name="consentMarketing" required>
+                        <label for="consentMarketing" class="consent-label" id="labelConsentMarketing">
+                            I consent to receive marketing text messages, about special offers, discounts, and service updates, from RIOS LLC at the phone number provided. Message frequency may vary. Message &amp; data rates may apply. Text HELP for assistance, reply STOP to opt out.
                         </label>
                     </div>
+                    <div class="consent-group consent-group-follow">
+                        <input type="checkbox" id="consentNonMarketing" name="consentNonMarketing" required>
+                        <label for="consentNonMarketing" class="consent-label" id="labelConsentNonMarketing">
+                            I consent to receive non-marketing text messages from RIOS LLC about account notifications, appointment and scheduling updates, customer support, and transactional messages. Message frequency may vary, message &amp; data rates may apply. Text HELP for assistance, reply STOP to opt out.
+                        </label>
+                    </div>
+                    <p class="consent-legal-note">For customer care, contact us at <a href="mailto:Hello@rioscontact.me" class="care-link">Hello@rioscontact.me</a> or call <a href="tel:+12136630834" class="care-link">(213) 663-0834</a>. See our <a href="legal/terms-of-service.html" class="care-link">Terms of Service</a> and <a href="legal/privacy-policy.html" class="care-link">Privacy Policy</a>.</p>
                     
                     <div class="phone-collection-note">
-                        <p><strong>How We Collect Your Phone Number:</strong> You provide your phone number directly in the form field above. This phone number will be used exclusively for sending you SMS messages as described in this consent agreement.</p>
+                        <p><strong>How We Collect Your Phone Number:</strong> You provide your phone number directly in the form field above. This phone number will be used for SMS messages as described in the two consent agreements you checked above.</p>
                     </div>
                 </div>
                 

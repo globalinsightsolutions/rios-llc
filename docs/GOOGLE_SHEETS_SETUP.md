@@ -19,6 +19,9 @@ This guide will help you set up Google Sheets to store form submissions from you
    - **I1:** Source URL
    - **J1:** User Agent
    - **K1:** IP Address
+   - **L1:** Consent Marketing
+   - **M1:** Consent Non-Marketing
+   - **N1:** Consent Snapshot
 
 ## Step 2: Create Google Apps Script
 

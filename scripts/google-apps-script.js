@@ -28,7 +28,10 @@ function doPost(e) {
         lastName: e.parameter.lastName || '',
         email: e.parameter.email || '',
         phone: e.parameter.phone || '',
-        consent: e.parameter.consent === 'true' || e.parameter.consent === 'true',
+        consent: e.parameter.consent === 'true',
+        consentMarketing: e.parameter.consentMarketing || '',
+        consentNonMarketing: e.parameter.consentNonMarketing || '',
+        consentSnapshot: e.parameter.consentSnapshot || '',
         consentTimestamp: e.parameter.consentTimestamp || '',
         optInMethod: e.parameter.optInMethod || 'web_form_checkbox',
         optInSource: e.parameter.optInSource || '',
@@ -46,13 +49,16 @@ function doPost(e) {
     const email = data.email || '';
     const phone = data.phone || '';
     const consent = (data.consent === true || data.consent === 'true' || data.consent === 'Yes') ? 'Yes' : 'No';
+    const consentMarketing = (data.consentMarketing === true || data.consentMarketing === 'true' || data.consentMarketing === 'Yes') ? 'Yes' : 'No';
+    const consentNonMarketing = (data.consentNonMarketing === true || data.consentNonMarketing === 'true' || data.consentNonMarketing === 'Yes') ? 'Yes' : 'No';
+    const consentSnapshot = data.consentSnapshot || '';
     const consentTimestamp = data.consentTimestamp || '';
     const optInMethod = data.optInMethod || 'web_form_checkbox';
     const sourceUrl = data.optInSource || '';
     const userAgent = data.userAgent || '';
     const ipAddress = data.ipAddress || '';
     
-    // Append data to the sheet
+    // Append data to the sheet (add columns J–L for dual consent if your header row includes them)
     sheet.appendRow([
       timestamp,
       firstName,
@@ -64,7 +70,10 @@ function doPost(e) {
       optInMethod,
       sourceUrl,
       userAgent,
-      ipAddress
+      ipAddress,
+      consentMarketing,
+      consentNonMarketing,
+      consentSnapshot
     ]);
     
     // Optional: Send email notification (uncomment to enable)

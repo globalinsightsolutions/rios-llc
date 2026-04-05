@@ -9,7 +9,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const lastNameInput = document.getElementById('lastName');
     const emailInput = document.getElementById('email');
     const phoneInput = document.getElementById('phone');
-    const consentCheckbox = document.getElementById('consent');
+    const consentMarketingCheckbox = document.getElementById('consentMarketing');
+    const consentNonMarketingCheckbox = document.getElementById('consentNonMarketing');
 
     // Phone number formatting
     phoneInput.addEventListener('input', function(e) {
@@ -57,9 +58,9 @@ document.addEventListener('DOMContentLoaded', function() {
             isValid = false;
         }
 
-        // Validate consent
-        if (!consentCheckbox.checked) {
-            errors.push('You must agree to the terms to continue');
+        // Validate both SMS consents
+        if (!consentMarketingCheckbox.checked || !consentNonMarketingCheckbox.checked) {
+            errors.push('You must check both consent boxes to continue');
             isValid = false;
         }
 
@@ -75,14 +76,18 @@ document.addEventListener('DOMContentLoaded', function() {
         if (validation.isValid) {
             // Collect form data with explicit consent verification
             const consentTimestamp = new Date().toISOString();
+            const marketingChecked = consentMarketingCheckbox.checked;
+            const nonMarketingChecked = consentNonMarketingCheckbox.checked;
             const formData = {
                 firstName: firstNameInput.value.trim(),
                 lastName: lastNameInput.value.trim(),
                 email: emailInput.value.trim(),
                 phone: phoneInput.value.trim(),
-                consent: consentCheckbox.checked,
+                consent: marketingChecked && nonMarketingChecked,
+                consentMarketing: marketingChecked,
+                consentNonMarketing: nonMarketingChecked,
                 consentTimestamp: consentTimestamp,
-                optInMethod: 'web_form_checkbox',
+                optInMethod: 'web_form_dual_checkbox',
                 optInSource: window.location.href,
                 ipAddress: 'recorded_on_server', // In production, capture actual IP
                 timestamp: consentTimestamp
@@ -92,12 +97,18 @@ document.addEventListener('DOMContentLoaded', function() {
             console.log('Form submitted with explicit consent:', formData);
             
             // Store consent record for A2P verification
+            const labelMarketing = document.getElementById('labelConsentMarketing');
+            const labelNonMarketing = document.getElementById('labelConsentNonMarketing');
+            const consentSnapshot = [
+                '[Marketing] ' + (labelMarketing ? labelMarketing.textContent.trim() : ''),
+                '[Non-marketing] ' + (labelNonMarketing ? labelNonMarketing.textContent.trim() : '')
+            ].join(' | ');
             const consentRecord = {
                 phoneNumber: formData.phone,
                 consentGiven: true,
-                consentMethod: 'explicit_checkbox',
+                consentMethod: 'explicit_dual_checkbox',
                 consentTimestamp: consentTimestamp,
-                consentText: document.querySelector('.consent-label').textContent,
+                consentText: consentSnapshot,
                 userAgent: navigator.userAgent,
                 sourceUrl: window.location.href
             };
@@ -134,7 +145,7 @@ document.addEventListener('DOMContentLoaded', function() {
         messageEl.innerHTML = `
             <div style="text-align: left;">
                 <h3 style="color: #d1fae5; margin-bottom: 1rem; font-size: 1.2rem;">✓ You're Successfully Enrolled!</h3>
-                <p style="margin-bottom: 0.75rem;"><strong>Program Description:</strong> You are now enrolled in the RIOS LLC VIP List program. You will receive marketing and promotional text messages containing early access notifications to exclusive opportunities, promotional offers, special deals, updates about new products and services, and exclusive marketing offers.</p>
+                <p style="margin-bottom: 0.75rem;"><strong>Program Description:</strong> You are now enrolled in the RIOS LLC VIP List program. You may receive <strong>marketing</strong> text messages about special offers, discounts, and service updates, and <strong>non-marketing</strong> text messages about account notifications, appointment and scheduling updates, customer support, and transactional messages, as described in the consent you provided.</p>
                 <p style="margin-bottom: 0.75rem;"><strong>Message Frequency:</strong> You may receive up to 10 messages per month. Message frequency may vary based on available opportunities.</p>
                 <p style="margin-bottom: 0.75rem;"><strong>Message and data rates may apply.</strong> Standard message and data rates charged by your mobile carrier will apply.</p>
                 <p style="margin-bottom: 0.75rem;"><strong>Customer Care:</strong> For questions or support, contact us at <a href="mailto:Hello@rioscontact.me" style="color: #d1fae5; text-decoration: underline;">Hello@rioscontact.me</a> or call <a href="tel:+12136630834" style="color: #d1fae5; text-decoration: underline;">(213) 663-0834</a>.</p>
@@ -235,7 +246,10 @@ document.addEventListener('DOMContentLoaded', function() {
             lastName: String(formData.lastName),
             email: String(formData.email),
             phone: String(formData.phone),
-            consent: String(formData.consent), // Will be 'true' or 'false'
+            consent: String(formData.consent),
+            consentMarketing: String(formData.consentMarketing),
+            consentNonMarketing: String(formData.consentNonMarketing),
+            consentSnapshot: String(consentRecord.consentText || ''),
             consentTimestamp: String(formData.consentTimestamp),
             optInMethod: String(formData.optInMethod),
             optInSource: String(formData.optInSource),
