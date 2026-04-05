@@ -1,0 +1,18 @@
+{
+  "name": "rios-llc-vip-optin",
+  "version": "1.0.0",
+  "description": "RIOS LLC VIP List Opt-In Page - A2P 10DLC Compliant",
+  "scripts": {
+    "dev": "npx serve .",
+    "build": "echo 'Static site - no build needed'"
+  },
+  "keywords": [
+    "opt-in",
+    "sms",
+    "a2p",
+    "10dlc"
+  ],
+  "author": "RIOS LLC",
+  "license": "UNLICENSED"
+}
+
