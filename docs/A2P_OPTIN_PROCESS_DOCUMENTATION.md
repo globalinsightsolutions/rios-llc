@@ -1,7 +1,7 @@
 # A2P 10DLC Opt-In Process Documentation
 
 **Document Version:** 1.0  
-**Last Updated:** January 2025  
+**Last Updated:** January 2026  
 **Company:** RIOS LLC  
 **Purpose:** Documentation for A2P 10DLC Campaign Registration
 
