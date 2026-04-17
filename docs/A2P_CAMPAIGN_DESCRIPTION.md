@@ -9,18 +9,26 @@
 
 ## Campaign Description
 
+### Business Model (Plain-English Summary)
+**RIOS LLC is a U.S.-based e-commerce retail company.** We sell curated consumer retail products directly to customers through our website and fulfillment partners. Our revenue is generated from direct retail sales of those products. We are not a lead-generation business, we do not broker leads, and we do not sell, rent, or share customer contact information with third parties for marketing purposes.
+
+The **VIP List SMS program** is a free, opt-in customer-loyalty and marketing channel that supports the retail business. Customers who want to be notified first about new product launches, limited-quantity restocks, promotional offers, and their own order/account activity can opt in on our public website. The VIP List itself is not a paid subscription; it exists to drive repeat purchases from existing and prospective retail customers and to provide order/support communications.
+
 ### Business Context
-RIOS LLC operates a VIP List program that provides early access to exclusive opportunities, promotional offers, and special deals. The business serves customers who want to be notified about new opportunities before they are made available to the general public.
+RIOS LLC operates the VIP List SMS program alongside its e-commerce storefront. The program provides two distinct categories of messages that customers can consent to independently:
+- **Marketing SMS:** early-access notifications for exclusive opportunities and new product launches, promotional offers and special deals (discount codes, seasonal sales), and product/service updates.
+- **Non-Marketing SMS:** account notifications, order and shipping updates, customer support replies, and other transactional messages.
 
 ### Application/Service
-The service is delivered through a web-based opt-in form where users can join the VIP List. Users provide their contact information (name, email, phone number) and explicitly consent to receive SMS messages.
+The service is delivered through a public web-based opt-in form on the company homepage where users can join the VIP List. Users provide their contact information (first name, last name, email, U.S. phone number) and explicitly consent to receive SMS messages by checking two separate, non-pre-checked consent boxes (one for marketing, one for non-marketing).
 
 ### End Users
 End users are individuals who:
-- Want early access to exclusive opportunities
-- Are interested in promotional offers and special deals
-- Have opted in to receive SMS notifications from RIOS LLC
-- Are located in the United States (US phone numbers required)
+- Are existing or prospective retail customers of RIOS LLC
+- Want early access to new product launches and exclusive promotional offers
+- Want order, shipping, and account notifications about their purchases
+- Have voluntarily opted in to receive SMS notifications from RIOS LLC
+- Are located in the United States (U.S. phone numbers required)
 
 ---
 
@@ -42,14 +50,16 @@ Users discover the VIP List program through:
    - Email Address (required)
    - Phone Number (required, US format)
 5. User reviews program description section that explains:
-   - Types of messages they will receive
+   - Types of messages they will receive (marketing and non-marketing)
    - Message frequency (up to 10 messages per month)
-6. User provides explicit consent by checking a required checkbox
-   - Checkbox is NOT pre-checked
-   - Consent text clearly explains what they're consenting to
-   - Includes all required disclosures (rates, frequency, opt-out, etc.)
+6. User provides explicit consent by checking **two separate required checkboxes** (one for marketing SMS, one for non-marketing SMS)
+   - Neither checkbox is pre-checked
+   - Each consent text clearly explains what the user is consenting to
+   - Includes all required disclosures (rates, frequency, opt-out, HELP, customer care, links to Terms and Privacy Policy)
+   - Marketing consent text (live form wording): *"I consent to receive recurring marketing text messages from RIOS LLC at the phone number provided, including early-access notifications for exclusive opportunities, promotional offers and special deals, and product/service updates. Message frequency may vary (up to 10 messages per month). Message & data rates may apply. Text HELP for assistance, reply STOP to opt out. Consent is not a condition of any purchase."*
+   - Non-marketing consent text (live form wording): *"I consent to receive non-marketing text messages from RIOS LLC about account notifications, appointment and scheduling updates, customer support, and transactional messages. Message frequency may vary, message & data rates may apply. Text HELP for assistance, reply STOP to opt out."*
 7. User clicks "NEXT" button to submit form
-8. Form validates all fields and consent
+8. Form validates all fields and that **both** consent checkboxes are checked
 9. User receives immediate confirmation message on the page
 
 ### 3. How Users Provide Phone Numbers
@@ -96,8 +106,8 @@ Users can opt-out at any time through multiple methods:
 - Reply **STOP ALL** to any message
 
 **Via Customer Care:**
-- Email: support@riosllc.com
-- Phone: (201) 555-0123
+- Email: Hello@rioscontact.me
+- Phone: (213) 663-0834
 
 **Opt-Out Confirmation:**
 After sending an opt-out keyword, users receive:
@@ -161,10 +171,10 @@ RIOS LLC: Your VIP account preferences have been updated. View your account: [li
 ## Consent Process Details
 
 ### Explicit Consent Method
-- **Type:** Web form with required checkbox
-- **Location:** Public opt-in page (no login required)
-- **Visibility:** Consent checkbox and text are clearly visible
-- **Requirement:** Checkbox must be checked to submit form
+- **Type:** Web form with two separate required checkboxes (dual-checkbox consent: marketing + non-marketing)
+- **Location:** Public opt-in page at https://rios-llc.com/ (no login required)
+- **Visibility:** Consent checkboxes and their full text are clearly visible and are not pre-checked
+- **Requirement:** Both checkboxes must be checked to submit the form; consent is not a condition of any purchase
 
 ### Consent Text Includes:
 1. ✅ Explicit consent statement
@@ -189,18 +199,22 @@ RIOS LLC: Your VIP account preferences have been updated. View your account: [li
 ## Supporting Documentation
 
 ### Publicly Accessible Pages:
-1. **Opt-In Page:** `index.html`
+1. **Opt-In Page:** `index.html` (https://rios-llc.com/)
    - Publicly accessible
    - No login required
-   - Contains full consent form
+   - Contains full consent form (dual-checkbox)
 
-2. **Terms of Service:** `legal/terms-of-service.html`
+2. **About Page:** `about.html` (https://rios-llc.com/about.html)
    - Publicly accessible
-   - Documents SMS program terms
+   - Describes the business (e-commerce retail), the VIP List program, compliance commitments, and contact/business information
+
+3. **Terms of Service:** `legal/terms-of-service.html`
+   - Publicly accessible
+   - Documents SMS program terms (marketing + non-marketing categories)
    - Includes opt-out instructions
    - Includes customer care information
 
-3. **Privacy Policy:** `legal/privacy-policy.html`
+4. **Privacy Policy:** `legal/privacy-policy.html`
    - Publicly accessible
    - Documents privacy practices
    - Explains data collection and use
@@ -217,9 +231,9 @@ RIOS LLC: Your VIP account preferences have been updated. View your account: [li
 ## Customer Care Information
 
 **Contact Methods:**
-- **Email:** support@riosllc.com
-- **Phone:** (201) 555-0123
-- **Business Hours:** Monday - Friday, 9:00 AM - 5:00 PM EST
+- **Email:** Hello@rioscontact.me
+- **Phone:** (213) 663-0834
+- **Business Hours:** Monday - Friday, 9:00 AM - 5:00 PM PT
 
 **Display Locations:**
 - Opt-in page (before form)
@@ -241,7 +255,7 @@ RIOS LLC: Your VIP account preferences have been updated. View your account: [li
 
 ### Help Response Message:
 ```
-RIOS LLC: For help, please email support@riosllc.com or call (201) 555-0123. To opt-out, reply STOP.
+RIOS LLC: For help, please email Hello@rioscontact.me or call (213) 663-0834. To opt-out, reply STOP.
 ```
 
 **Help Message Includes:**
@@ -314,8 +328,10 @@ When submitting for A2P registration, provide screenshots of:
 ## Contact for A2P Registration Questions
 
 **RIOS LLC**  
-Email: support@riosllc.com  
-Phone: (201) 555-0123
+Email: Hello@rioscontact.me  
+Phone: (213) 663-0834  
+Website: https://rios-llc.com/  
+About: https://rios-llc.com/about.html
 
 ---
 

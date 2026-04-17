@@ -11,6 +11,8 @@
 
 This document describes the complete opt-in process for the RIOS LLC VIP List SMS program. This documentation is provided for A2P 10DLC campaign registration and verification purposes.
 
+**About RIOS LLC:** RIOS LLC is a U.S.-based e-commerce retail company. Revenue is generated from direct retail sales of consumer products through our website and fulfillment partners. The VIP List SMS program is a free, opt-in customer-loyalty and marketing channel that supports the retail business — it is not a paid subscription, and RIOS LLC does not sell, rent, or share SMS opt-in data with third parties for their own marketing. See https://rios-llc.com/about.html for full business details.
+
 ---
 
 ## 1. Opt-In Method
@@ -50,20 +52,22 @@ Before providing consent, users see:
 - **Message Frequency Disclosure:** "You may receive up to 10 messages per month"
 - **Customer Care Information:** Email and phone contact details
 
-### Step 4: Explicit Consent
-- User must check a checkbox to provide **explicit consent**
-- Checkbox is clearly labeled with heading: "SMS Consent & Authorization"
-- Consent text includes:
-  - Explicit statement: "I EXPLICITLY CONSENT to receive recurring automated promotional and transactional text messages"
-  - Organization identity: "from RIOS LLC"
-  - Phone number reference: "at the phone number I provide above"
+### Step 4: Explicit Consent (Dual Checkbox)
+- User must check **two separate checkboxes** to provide **explicit consent** — one for marketing SMS, one for non-marketing SMS
+- Section is clearly labeled with heading: "SMS Consent & Authorization"
+- Neither checkbox is pre-checked
+- **Marketing consent text (verbatim from live form):** *"I consent to receive recurring marketing text messages from RIOS LLC at the phone number provided, including early-access notifications for exclusive opportunities, promotional offers and special deals, and product/service updates. Message frequency may vary (up to 10 messages per month). Message & data rates may apply. Text HELP for assistance, reply STOP to opt out. Consent is not a condition of any purchase."*
+- **Non-marketing consent text (verbatim from live form):** *"I consent to receive non-marketing text messages from RIOS LLC about account notifications, appointment and scheduling updates, customer support, and transactional messages. Message frequency may vary, message & data rates may apply. Text HELP for assistance, reply STOP to opt out."*
+- Consent text collectively includes:
+  - Organization identity: "RIOS LLC"
+  - Phone number reference: "at the phone number provided"
   - Message and data rates disclosure
-  - Message frequency disclosure
+  - Message frequency disclosure (up to 10/month)
   - Opt-out instructions (STOP, HELP keywords)
-  - Customer care contact information
+  - Customer care contact information (email and phone)
   - Links to Terms of Service and Privacy Policy
-- **Checkbox is required** - form cannot be submitted without checking it
-- Consent is not a condition of purchase
+- **Both checkboxes are required** — the form cannot be submitted unless both are checked
+- Consent is not a condition of any purchase
 
 ### Step 5: Form Submission
 - User clicks "NEXT" button to submit
@@ -84,24 +88,27 @@ After opt-in, user immediately receives an on-page confirmation that includes:
 ## 3. Consent Verification
 
 ### Explicit Consent Evidence:
-1. **Checkbox Selection:** User must actively check a checkbox (not pre-checked)
-2. **Consent Text:** Clear, conspicuous language explaining what they're consenting to
+1. **Checkbox Selection:** User must actively check **both** checkboxes (neither is pre-checked)
+2. **Consent Text:** Clear, conspicuous language explaining what they're consenting to (marketing SMS and non-marketing SMS, separately)
 3. **Timestamp:** Consent timestamp is recorded when form is submitted
 4. **Consent Record:** System logs include:
    - Phone number
-   - Consent status (true/false)
-   - Consent method ("explicit_checkbox")
+   - Marketing consent status (true/false)
+   - Non-marketing consent status (true/false)
+   - Consent method ("explicit_dual_checkbox")
    - Consent timestamp (ISO 8601 format)
+   - Full consent text snapshot for both checkboxes
    - Source URL
    - User agent
 
 ### Consent Storage:
 - Consent records are stored with the following information:
   - Phone number
-  - Consent given: true
-  - Consent method: "explicit_checkbox"
+  - Marketing consent: true/false
+  - Non-marketing consent: true/false
+  - Consent method: "explicit_dual_checkbox"
   - Consent timestamp
-  - Full consent text that user agreed to
+  - Full consent text snapshot that user agreed to (both checkboxes)
   - User agent
   - Source URL
 
@@ -157,8 +164,8 @@ After opt-in, user immediately receives an on-page confirmation that includes:
 - Reply **STOP ALL** to any message
 
 **Via Customer Care:**
-- Email: support@riosllc.com
-- Phone: (201) 555-0123
+- Email: Hello@rioscontact.me
+- Phone: (213) 663-0834
 
 **Opt-Out Confirmation:**
 - After sending opt-out keyword, user receives confirmation message:
@@ -237,8 +244,8 @@ Screenshots should be taken of:
 ## 10. Compliance Notes
 
 **A2P 10DLC Compliance:**
-- ✅ Explicit consent via required checkbox
-- ✅ Clear program description
+- ✅ Explicit consent via two required checkboxes (marketing + non-marketing), neither pre-checked
+- ✅ Clear program description on opt-in page and About page
 - ✅ Message frequency disclosure
 - ✅ Message and data rates disclosure
 - ✅ Opt-out instructions provided
@@ -264,8 +271,10 @@ This opt-in process can be verified by:
 For questions about this opt-in process or A2P registration:
 
 **RIOS LLC**  
-Email: support@riosllc.com  
-Phone: (201) 555-0123
+Email: Hello@rioscontact.me  
+Phone: (213) 663-0834  
+Website: https://rios-llc.com/  
+About: https://rios-llc.com/about.html
 
 ---
 
