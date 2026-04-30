@@ -1,7 +1,7 @@
 # A2P 10DLC Campaign Description for Registration
 
 **Company:** RIOS LLC  
-**Campaign Use Case:** Mixed / Marketing / Account Notifications  
+**Campaign Use Case:** Mixed / Marketing / Customer Care  
 **Document Version:** 1.0  
 **Date:** January 2026
 
@@ -12,15 +12,15 @@
 ### Business Model (Plain-English Summary)
 **RIOS LLC is a U.S.-based e-commerce retail company.** We sell curated consumer retail products directly to customers through our website and fulfillment partners. Our revenue is generated from direct retail sales of those products. We are not a lead-generation business, we do not broker leads, and we do not sell, rent, or share customer contact information with third parties for marketing purposes.
 
-The **VIP List SMS program** is a free, opt-in customer-loyalty and marketing channel that supports the retail business. Customers who want to be notified first about new product launches, limited-quantity restocks, promotional offers, and their own order/account activity can opt in on our public website. The VIP List itself is not a paid subscription; it exists to drive repeat purchases from existing and prospective retail customers and to provide order/support communications.
+The **VIP List SMS program** is a free, opt-in customer-loyalty and customer-care channel that supports the retail business. Customers who want to be notified first about new product launches, limited-quantity restocks, member-only offers, and their own order/account activity can opt in on our public website. The VIP List itself is not a paid subscription; it exists to drive repeat purchases from existing and prospective retail customers and to provide order/support communications.
 
 ### Business Context
 RIOS LLC operates the VIP List SMS program alongside its e-commerce storefront. The program provides two distinct categories of messages that customers can consent to independently:
-- **Marketing SMS:** early-access notifications for exclusive opportunities and new product launches, promotional offers and special deals (discount codes, seasonal sales), and product/service updates.
+- **Marketing SMS:** new product drops and launch announcements, member-only offers and special deals (discount codes, seasonal sales), limited restock alerts, and product/service updates.
 - **Non-Marketing SMS:** account notifications, order and shipping updates, customer support replies, and other transactional messages.
 
 ### Application/Service
-The service is delivered through a public web-based opt-in form on the company homepage where users can join the VIP List. Users provide their contact information (first name, last name, email, U.S. phone number) and explicitly consent to receive SMS messages by checking two separate, non-pre-checked consent boxes (one for marketing, one for non-marketing).
+The service is delivered through a public web-based opt-in form on the company homepage where users can join the VIP List. Users provide their contact information (first name, last name, email, U.S. phone number) and may explicitly consent to receive SMS messages by checking one or both separate, non-pre-checked consent boxes (one for marketing, one for non-marketing). The form does not force users to enroll in either message category, and only users who select an SMS consent checkbox are enrolled in text messaging.
 
 ### End Users
 End users are individuals who:
@@ -42,7 +42,7 @@ Users discover the VIP List program through:
 
 ### 2. User Sign-Up Process
 1. User visits the public opt-in page (no login required)
-2. User sees program description: "Get early access to hidden opportunities before they are made public right to your phone"
+2. User sees program description: "Get text updates from RIOS LLC about new product drops, member-only offers, limited restocks, and order updates."
 3. User views customer care contact information (email and phone)
 4. User fills out form with:
    - First Name (required)
@@ -52,15 +52,16 @@ Users discover the VIP List program through:
 5. User reviews program description section that explains:
    - Types of messages they will receive (marketing and non-marketing)
    - Message frequency (up to 10 messages per month)
-6. User provides explicit consent by checking **two separate required checkboxes** (one for marketing SMS, one for non-marketing SMS)
+6. User may provide explicit consent by checking **one or both separate consent checkboxes** (one for marketing SMS, one for non-marketing SMS)
    - Neither checkbox is pre-checked
+   - The form does not force the user to consent to either message category
    - Each consent text clearly explains what the user is consenting to
    - Includes all required disclosures (rates, frequency, opt-out, HELP, customer care, links to Terms and Privacy Policy)
-   - Marketing consent text (live form wording): *"I consent to receive recurring marketing text messages from RIOS LLC at the phone number provided, including early-access notifications for exclusive opportunities, promotional offers and special deals, and product/service updates. Message frequency may vary (up to 10 messages per month). Message & data rates may apply. Text HELP for assistance, reply STOP to opt out. Consent is not a condition of any purchase."*
-   - Non-marketing consent text (live form wording): *"I consent to receive non-marketing text messages from RIOS LLC about account notifications, appointment and scheduling updates, customer support, and transactional messages. Message frequency may vary, message & data rates may apply. Text HELP for assistance, reply STOP to opt out."*
+   - Marketing consent text (live form wording): *"I consent to receive marketing text messages from RIOS LLC at the phone number provided about new product drops, member-only offers, limited restocks, and product or service updates. Message frequency may vary and may total up to 10 messages per month. Message & data rates may apply. Text HELP for assistance, reply STOP to opt out. Consent is not a condition of purchase."*
+   - Non-marketing consent text (live form wording): *"I consent to receive non-marketing text messages from RIOS LLC at the phone number provided about order updates, shipping notifications, account alerts, customer support replies, and other transactional messages. Message frequency may vary. Message & data rates may apply. Text HELP for assistance, reply STOP to opt out."*
 7. User clicks "NEXT" button to submit form
-8. Form validates all fields and that **both** consent checkboxes are checked
-9. User receives immediate confirmation message on the page
+8. Form validates all required contact fields. SMS enrollment only applies if the user actively selected at least one SMS consent checkbox.
+9. User receives an immediate post-submit confirmation on the page. If SMS consent was selected, the confirmation includes the SMS program disclosures.
 
 ### 3. How Users Provide Phone Numbers
 - **Method:** Direct user input via web form
@@ -73,17 +74,17 @@ Users discover the VIP List program through:
 Users receive SMS messages in the following scenarios:
 
 **Message Types:**
-1. **Early Access Notifications**
-   - Trigger: New exclusive opportunity becomes available
-   - Example: "New exclusive opportunity available! Get early access at [link]"
+1. **Product Drop Notifications**
+   - Trigger: A new product release becomes available
+   - Example: "RIOS LLC: New product drop now live. View details: [link]. Reply STOP to opt out."
 
 2. **Promotional Offers**
    - Trigger: Special deals or discounts launch
-   - Example: "VIP Exclusive: 20% off all products today only. Use code VIP20 at checkout."
+   - Example: "RIOS LLC VIP: 20% off select products today only. Use code VIP20 at checkout. Reply STOP to opt out."
 
 3. **Product/Service Updates**
    - Trigger: New products or services are announced
-   - Example: "New product launch! Be among the first to access [product name]."
+   - Example: "RIOS LLC: Product update available now. View the latest release here: [link]."
 
 4. **Transactional Messages**
    - Trigger: Account-related events
@@ -171,10 +172,10 @@ RIOS LLC: Your VIP account preferences have been updated. View your account: [li
 ## Consent Process Details
 
 ### Explicit Consent Method
-- **Type:** Web form with two separate required checkboxes (dual-checkbox consent: marketing + non-marketing)
+- **Type:** Web form with separate checkbox consent by category (marketing and non-marketing)
 - **Location:** Public opt-in page at https://rios-llc.com/ (no login required)
 - **Visibility:** Consent checkboxes and their full text are clearly visible and are not pre-checked
-- **Requirement:** Both checkboxes must be checked to submit the form; consent is not a condition of any purchase
+- **Requirement:** Users may choose marketing, non-marketing, both, or neither; consent is not a condition of any purchase
 
 ### Consent Text Includes:
 1. ✅ Explicit consent statement
@@ -336,4 +337,3 @@ About: https://rios-llc.com/about.html
 ---
 
 **Document End**
-

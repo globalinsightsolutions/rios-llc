@@ -30,7 +30,7 @@ This document describes the complete opt-in process for the RIOS LLC VIP List SM
 ### Step 1: User Visits Opt-In Page
 - User navigates to the public opt-in page
 - Page displays: "JOIN THE VIP LIST" heading
-- Program description is visible: "Get early access to hidden opportunities before they are made public right to your phone."
+- Program description is visible: "Get text updates from RIOS LLC about new product drops, member-only offers, limited restocks, and order updates."
 
 ### Step 2: User Provides Contact Information
 The user fills out a form with the following fields:
@@ -53,11 +53,12 @@ Before providing consent, users see:
 - **Customer Care Information:** Email and phone contact details
 
 ### Step 4: Explicit Consent (Dual Checkbox)
-- User must check **two separate checkboxes** to provide **explicit consent** — one for marketing SMS, one for non-marketing SMS
+- User may check either checkbox, both checkboxes, or neither checkbox. Explicit SMS consent is only provided for the category or categories the user actively selects — one checkbox is for marketing SMS and one checkbox is for non-marketing SMS
 - Section is clearly labeled with heading: "SMS Consent & Authorization"
 - Neither checkbox is pre-checked
-- **Marketing consent text (verbatim from live form):** *"I consent to receive recurring marketing text messages from RIOS LLC at the phone number provided, including early-access notifications for exclusive opportunities, promotional offers and special deals, and product/service updates. Message frequency may vary (up to 10 messages per month). Message & data rates may apply. Text HELP for assistance, reply STOP to opt out. Consent is not a condition of any purchase."*
-- **Non-marketing consent text (verbatim from live form):** *"I consent to receive non-marketing text messages from RIOS LLC about account notifications, appointment and scheduling updates, customer support, and transactional messages. Message frequency may vary, message & data rates may apply. Text HELP for assistance, reply STOP to opt out."*
+- The form does not force users to opt into either message category
+- **Marketing consent text (verbatim from live form):** *"I consent to receive marketing text messages from RIOS LLC at the phone number provided about new product drops, member-only offers, limited restocks, and product or service updates. Message frequency may vary and may total up to 10 messages per month. Message & data rates may apply. Text HELP for assistance, reply STOP to opt out. Consent is not a condition of purchase."*
+- **Non-marketing consent text (verbatim from live form):** *"I consent to receive non-marketing text messages from RIOS LLC at the phone number provided about order updates, shipping notifications, account alerts, customer support replies, and other transactional messages. Message frequency may vary. Message & data rates may apply. Text HELP for assistance, reply STOP to opt out."*
 - Consent text collectively includes:
   - Organization identity: "RIOS LLC"
   - Phone number reference: "at the phone number provided"
@@ -66,38 +67,39 @@ Before providing consent, users see:
   - Opt-out instructions (STOP, HELP keywords)
   - Customer care contact information (email and phone)
   - Links to Terms of Service and Privacy Policy
-- **Both checkboxes are required** — the form cannot be submitted unless both are checked
+- Users may choose marketing, non-marketing, both, or neither. Only users who actively select an SMS checkbox are enrolled in text messaging.
 - Consent is not a condition of any purchase
 
 ### Step 5: Form Submission
 - User clicks "NEXT" button to submit
-- Form validates all required fields including consent checkbox
-- Upon successful submission, user receives immediate confirmation message
+- Form validates all required contact fields
+- Upon successful submission, the form is replaced with an on-page confirmation state
 
 ### Step 6: Confirmation Message
-After opt-in, user immediately receives an on-page confirmation that includes:
+If SMS consent was selected, the user immediately receives an on-page confirmation that includes:
 - Program description
 - Message frequency disclosure
 - "Message and data rates may apply" disclosure
 - Customer care contact information
 - Opt-out instructions
 - Help keyword information
+If no SMS consent was selected, the user receives a confirmation that their information was received and that they are not opted in to text messages.
 
 ---
 
 ## 3. Consent Verification
 
 ### Explicit Consent Evidence:
-1. **Checkbox Selection:** User must actively check **both** checkboxes (neither is pre-checked)
+1. **Checkbox Selection:** Users can leave both boxes unchecked or actively choose either or both categories. Only boxes the user actively checks create SMS consent.
 2. **Consent Text:** Clear, conspicuous language explaining what they're consenting to (marketing SMS and non-marketing SMS, separately)
 3. **Timestamp:** Consent timestamp is recorded when form is submitted
 4. **Consent Record:** System logs include:
    - Phone number
    - Marketing consent status (true/false)
    - Non-marketing consent status (true/false)
-   - Consent method ("explicit_dual_checkbox")
+   - Consent method ("web_form_single_or_dual_checkbox")
    - Consent timestamp (ISO 8601 format)
-   - Full consent text snapshot for both checkboxes
+   - Full consent text snapshot for the message categories the user selected
    - Source URL
    - User agent
 
@@ -106,9 +108,9 @@ After opt-in, user immediately receives an on-page confirmation that includes:
   - Phone number
   - Marketing consent: true/false
   - Non-marketing consent: true/false
-  - Consent method: "explicit_dual_checkbox"
+  - Consent method: "web_form_single_or_dual_checkbox"
   - Consent timestamp
-  - Full consent text snapshot that user agreed to (both checkboxes)
+  - Full consent text snapshot that user agreed to
   - User agent
   - Source URL
 
@@ -133,10 +135,10 @@ After opt-in, user immediately receives an on-page confirmation that includes:
 ## 5. When and Why Users Receive SMS
 
 ### Message Types:
-1. **Early Access Notifications:** Alerts about exclusive opportunities before public release
-2. **Promotional Offers:** Special deals and discounts
-3. **Product Updates:** Information about new products and services
-4. **Transactional Messages:** Account-related communications
+1. **Product Drop Notifications:** Alerts about new product launches and limited releases
+2. **Promotional Offers:** Member-only deals and discounts
+3. **Restock and Product Updates:** Information about limited restocks and product updates
+4. **Transactional Messages:** Order, shipping, account, and customer-support communications
 
 ### Message Frequency:
 - Up to 10 messages per month
@@ -144,7 +146,7 @@ After opt-in, user immediately receives an on-page confirmation that includes:
 - Users are informed of this frequency before opting in
 
 ### Trigger Events:
-- New exclusive opportunities become available
+- New product drops or limited restocks become available
 - Promotional campaigns launch
 - Product/service updates
 - Account-related transactions or updates
@@ -244,7 +246,7 @@ Screenshots should be taken of:
 ## 10. Compliance Notes
 
 **A2P 10DLC Compliance:**
-- ✅ Explicit consent via two required checkboxes (marketing + non-marketing), neither pre-checked
+- ✅ Explicit consent via separate checkbox by message category, neither pre-checked
 - ✅ Clear program description on opt-in page and About page
 - ✅ Message frequency disclosure
 - ✅ Message and data rates disclosure
@@ -279,4 +281,3 @@ About: https://rios-llc.com/about.html
 ---
 
 **Document End**
-

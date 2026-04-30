@@ -11,6 +11,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const phoneInput = document.getElementById('phone');
     const consentMarketingCheckbox = document.getElementById('consentMarketing');
     const consentNonMarketingCheckbox = document.getElementById('consentNonMarketing');
+    const signupIntro = document.getElementById('signupIntro');
+    const successState = document.getElementById('signupSuccessState');
 
     // Phone number formatting
     phoneInput.addEventListener('input', function(e) {
@@ -58,12 +60,6 @@ document.addEventListener('DOMContentLoaded', function() {
             isValid = false;
         }
 
-        // Validate both SMS consents
-        if (!consentMarketingCheckbox.checked || !consentNonMarketingCheckbox.checked) {
-            errors.push('You must check both consent boxes to continue');
-            isValid = false;
-        }
-
         return { isValid, errors };
     }
 
@@ -83,11 +79,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 lastName: lastNameInput.value.trim(),
                 email: emailInput.value.trim(),
                 phone: phoneInput.value.trim(),
-                consent: marketingChecked && nonMarketingChecked,
+                consent: marketingChecked || nonMarketingChecked,
                 consentMarketing: marketingChecked,
                 consentNonMarketing: nonMarketingChecked,
                 consentTimestamp: consentTimestamp,
-                optInMethod: 'web_form_dual_checkbox',
+                optInMethod: 'web_form_single_or_dual_checkbox',
                 optInSource: window.location.href,
                 ipAddress: 'recorded_on_server', // In production, capture actual IP
                 timestamp: consentTimestamp
@@ -105,8 +101,8 @@ document.addEventListener('DOMContentLoaded', function() {
             ].join(' | ');
             const consentRecord = {
                 phoneNumber: formData.phone,
-                consentGiven: true,
-                consentMethod: 'explicit_dual_checkbox',
+                consentGiven: marketingChecked || nonMarketingChecked,
+                consentMethod: 'web_form_single_or_dual_checkbox',
                 consentTimestamp: consentTimestamp,
                 consentText: consentSnapshot,
                 userAgent: navigator.userAgent,
@@ -114,61 +110,53 @@ document.addEventListener('DOMContentLoaded', function() {
             };
             console.log('Consent record for A2P verification:', consentRecord);
 
-            // Show confirmation immediately (don't wait for Google Sheets)
-            showOptInConfirmation(formData);
+            // Replace the form with the appropriate post-submit state immediately.
+            showSubmissionState(formData);
             
             // Send data to Google Sheets in the background
             sendToGoogleSheets(formData, consentRecord);
-            
-            // Reset form after a delay
-            setTimeout(() => {
-                form.reset();
-                updateProgress(1);
-            }, 10000);
         } else {
             // Show error messages
             showMessage(validation.errors.join('. '), 'error');
         }
     });
 
-    // Show A2P-compliant opt-in confirmation message
-    function showOptInConfirmation(formData) {
-        // Remove existing message if any
-        const existingMessage = document.querySelector('.form-message');
-        if (existingMessage) {
-            existingMessage.remove();
+    function showSubmissionState(formData) {
+        const selectedPrograms = [];
+        if (formData.consentMarketing) {
+            selectedPrograms.push('marketing messages about product drops, member-only offers, restocks, and product updates');
+        }
+        if (formData.consentNonMarketing) {
+            selectedPrograms.push('non-marketing messages about orders, shipping, account alerts, and customer support');
+        }
+        const hasSmsConsent = selectedPrograms.length > 0;
+        const programCopy = selectedPrograms.join(' and ');
+
+        if (hasSmsConsent) {
+            successState.innerHTML = `
+                <h2>You're Successfully Enrolled</h2>
+                <p><strong>Program Description:</strong> You are now enrolled in the RIOS LLC VIP List program for ${programCopy}, based on the consent you provided.</p>
+                <p><strong>Message Frequency:</strong> You may receive up to 10 messages per month. Message frequency may vary based on available opportunities.</p>
+                <p><strong>Message and data rates may apply.</strong></p>
+                <p><strong>Customer Care:</strong> For questions or support, contact us at <a href="mailto:Hello@rioscontact.me">Hello@rioscontact.me</a> or call <a href="tel:+12136630834">(213) 663-0834</a>.</p>
+                <p><strong>Opt-Out Instructions:</strong> You can opt out at any time by replying <strong>STOP</strong>, <strong>UNSUBSCRIBE</strong>, <strong>END</strong>, <strong>QUIT</strong>, <strong>CANCEL</strong>, or <strong>STOP ALL</strong> to any message you receive.</p>
+                <p><strong>Help:</strong> Reply <strong>HELP</strong> for assistance.</p>
+            `;
+        } else {
+            successState.innerHTML = `
+                <h2>Thanks, Your Information Was Received</h2>
+                <p>You submitted the form without selecting an SMS consent option, so you are <strong>not</strong> opted in to text messages from RIOS LLC.</p>
+                <p>If you want to receive text updates in the future, submit the form again and select marketing, non-marketing, or both SMS consent options.</p>
+                <p><strong>Customer Care:</strong> For questions, contact <a href="mailto:Hello@rioscontact.me">Hello@rioscontact.me</a> or call <a href="tel:+12136630834">(213) 663-0834</a>.</p>
+            `;
         }
 
-        // Create A2P-compliant confirmation message element
-        const messageEl = document.createElement('div');
-        messageEl.className = 'form-message form-message-success';
-        messageEl.innerHTML = `
-            <div style="text-align: left;">
-                <h3 style="color: #d1fae5; margin-bottom: 1rem; font-size: 1.2rem;">✓ You're Successfully Enrolled!</h3>
-                <p style="margin-bottom: 0.75rem;"><strong>Program Description:</strong> You are now enrolled in the RIOS LLC VIP List program. You may receive <strong>marketing</strong> text messages including early-access notifications for exclusive opportunities, promotional offers and special deals, and product/service updates, and <strong>non-marketing</strong> text messages about account notifications, order and shipping updates, customer support, and transactional messages, as described in the consent you provided.</p>
-                <p style="margin-bottom: 0.75rem;"><strong>Message Frequency:</strong> You may receive up to 10 messages per month. Message frequency may vary based on available opportunities.</p>
-                <p style="margin-bottom: 0.75rem;"><strong>Message and data rates may apply.</strong> Standard message and data rates charged by your mobile carrier will apply.</p>
-                <p style="margin-bottom: 0.75rem;"><strong>Customer Care:</strong> For questions or support, contact us at <a href="mailto:Hello@rioscontact.me" style="color: #d1fae5; text-decoration: underline;">Hello@rioscontact.me</a> or call <a href="tel:+12136630834" style="color: #d1fae5; text-decoration: underline;">(213) 663-0834</a>.</p>
-                <p style="margin-bottom: 0.75rem;"><strong>Opt-Out Instructions:</strong> You can opt-out at any time by replying <strong>STOP</strong>, <strong>UNSUBSCRIBE</strong>, <strong>END</strong>, <strong>QUIT</strong>, <strong>CANCEL</strong>, or <strong>STOP ALL</strong> to any message you receive.</p>
-                <p style="margin-bottom: 0.75rem;"><strong>Help:</strong> Reply <strong>HELP</strong>, <strong>ISSUE</strong>, <strong>FIX</strong>, <strong>RESOLVE</strong>, or <strong>INQUIRY</strong> for assistance.</p>
-                <p style="margin-top: 1rem; font-size: 0.85rem; color: #a7f3d0;">Thank you for joining the RIOS LLC VIP List!</p>
-            </div>
-        `;
-        messageEl.style.cssText = `
-            padding: 1.5rem;
-            margin-top: 1rem;
-            border-radius: 6px;
-            background-color: #065f46;
-            color: #d1fae5;
-            font-size: 0.9rem;
-            line-height: 1.6;
-        `;
-
-        // Insert message after the form
-        form.appendChild(messageEl);
-
-        // Scroll to message
-        messageEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        form.classList.add('is-hidden');
+        if (signupIntro) {
+            signupIntro.classList.add('is-hidden');
+        }
+        successState.classList.remove('is-hidden');
+        successState.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
 
     // Show message function (for errors)
@@ -202,20 +190,6 @@ document.addEventListener('DOMContentLoaded', function() {
         setTimeout(() => {
             messageEl.remove();
         }, 5000);
-    }
-
-    // Progress indicator update (for multi-step forms)
-    function updateProgress(step) {
-        const progressIndicators = document.querySelectorAll('.form-progress span');
-        progressIndicators.forEach((indicator, index) => {
-            if (index < step) {
-                indicator.classList.add('progress-active');
-                indicator.classList.remove('progress-inactive');
-            } else {
-                indicator.classList.add('progress-inactive');
-                indicator.classList.remove('progress-active');
-            }
-        });
     }
 
     // Input field focus effects
@@ -282,4 +256,3 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
-
