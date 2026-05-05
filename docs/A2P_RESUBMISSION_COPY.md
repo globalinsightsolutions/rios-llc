@@ -1,117 +1,95 @@
 # A2P 10DLC Resubmission Copy
 
-Use this file as the source of truth when resubmitting the RIOS LLC campaign so the registration matches the live site at `https://rios-llc.com/`.
+Use this file for the next resubmission. The prior rejection happened because the submitted description mixed marketing, transactional, shipping, account, and support messages. For this attempt, submit a single marketing campaign only.
 
 ## Recommended Campaign Setup
 
 - **Brand name:** `RIOS LLC`
+- **Registered/legal name if shown by HighLevel:** `RIOS LLC CHRIS RIOS SOLE MBR`
+- **Public sender/program name:** `RIOS LLC`
 - **Website:** `https://rios-llc.com/`
 - **Opt-in form URL:** `https://rios-llc.com/`
+- **A2P proof URL:** `https://rios-llc.com/a2p-opt-in-proof.html`
 - **Privacy Policy URL:** `https://rios-llc.com/legal/privacy-policy.html`
 - **Terms of Service URL:** `https://rios-llc.com/legal/terms-of-service.html`
 - **Support email:** `Hello@rioscontact.me`
 - **Support phone:** `(213) 663-0834`
-- **Recommended use case if submitting one campaign:** `MIXED`
+- **Campaign use case:** `MARKETING`
 
-If the platform allows separate campaigns, that is cleaner:
+Do not submit this campaign as `MIXED`, `CUSTOMER_CARE`, or `ACCOUNT_NOTIFICATION`. Do not include order confirmations, shipping notifications, account alerts, or support replies in this campaign. Those should be a separate campaign later if needed.
 
-- `MARKETING` for product drops, member-only offers, restocks, and promotions
-- `CUSTOMER_CARE` or `ACCOUNT_NOTIFICATION` for order, shipping, account, and support updates
+## Use Case Description
 
-If you are only submitting one campaign in HighLevel, use `MIXED` and keep the description and samples below exactly aligned.
+Paste this into the use case / campaign description field:
 
-## Campaign Description
+`RIOS LLC CHRIS RIOS SOLE MBR does business as RIOS LLC. This marketing campaign sends recurring SMS messages from RIOS LLC to U.S. customers and prospective customers who voluntarily opt in through the public web form at https://rios-llc.com/. Messages promote RIOS LLC retail products and may include new product drops, member-only offers, limited restock alerts, promotional discount codes, seasonal promotions, and product updates. Message frequency varies and does not exceed 10 messages per month. Each message identifies RIOS LLC as the sender. Recipients can reply STOP to opt out or HELP for help at any time.`
 
-Paste this into the campaign description field:
+## How Contacts Opt In To Messages
 
-`RIOS LLC is a U.S.-based retail business that sells consumer products online. Messages are sent by RIOS LLC to existing and prospective customers who voluntarily opt in on our public website at https://rios-llc.com/. The SMS program includes marketing messages about new product drops, member-only offers, limited restock alerts, and product or service updates, plus non-marketing messages about order updates, shipping notifications, account alerts, and customer support replies. Users choose marketing, non-marketing, or both through separate, non-pre-checked consent checkboxes. Message frequency may vary and may total up to 10 messages per month. Reply STOP to opt out.`
+Paste this into the opt-in workflow / message flow field:
 
-## How Contacts Opt In
+`Customers opt in through the public RIOS LLC web form at https://rios-llc.com/. The form collects first name, last name, email address, and U.S. mobile phone number directly from the customer. At the time the phone number is collected, the form displays a separate optional marketing SMS consent checkbox that is not pre-checked. The customer is enrolled in SMS only if they actively check that consent box before submitting the form. The checkbox disclosure identifies RIOS LLC as the sender, describes the marketing message types, states that message frequency varies up to 10 messages per month, states that message and data rates may apply, says Reply HELP for help and STOP to opt out, and states that consent is not a condition of purchase. The form also links to the Terms of Service and Privacy Policy at the time of opt-in. RIOS LLC does not collect SMS opt-ins by paper form, verbal script, keyword, hidden form, login-only form, purchased list, affiliate list, or third-party lead source. Public proof of this opt-in workflow is available at https://rios-llc.com/a2p-opt-in-proof.html.`
 
-Paste this into the message flow / how contacts opt in field:
+## Opt-In Form URL
 
-`Customers opt in on the public RIOS LLC website at https://rios-llc.com/ by entering their first name, last name, email address, and mobile phone number into the signup form. The form clearly explains the program and message types before consent is collected. Users then choose which SMS messages they want by selecting either checkbox, both checkboxes, or neither checkbox: one checkbox is for marketing messages and one checkbox is for non-marketing messages. Only users who actively select an SMS consent checkbox are enrolled in SMS. The form is not tied to a purchase requirement, and users are not forced to consent to either category. The call to action and consent language disclose that message frequency may vary, message and data rates may apply, HELP is available for assistance, and STOP can be used to opt out. Terms of Service and Privacy Policy links are displayed on the page at the time of opt in.`
+Use this URL:
 
-## Opt-In Method
+`https://rios-llc.com/`
 
-- **Method:** Website form with checkbox consent
-- **Public form URL:** `https://rios-llc.com/`
-- **Consent type:** Separate checkbox by message category
-- **Phone number collection:** Direct user entry on the web form
-- **Consent boxes:** Not pre-checked
-- **Submission rule:** Form can be submitted without selecting SMS consent, but only users who select an SMS checkbox are opted into text messaging
+If the form asks for supporting proof or screenshot URL, use:
 
-## Live Consent Language
+`https://rios-llc.com/a2p-opt-in-proof.html`
 
-These should match the website exactly.
+## Exact Website Consent Language
 
-### Marketing Consent Checkbox
+This is the consent language on the public form:
 
-`I consent to receive marketing text messages from RIOS LLC at the phone number provided about new product drops, member-only offers, limited restocks, and product or service updates. Message frequency may vary and may total up to 10 messages per month. Message & data rates may apply. Text HELP for assistance, reply STOP to opt out. Consent is not a condition of purchase.`
-
-### Non-Marketing Consent Checkbox
-
-`I consent to receive non-marketing text messages from RIOS LLC at the phone number provided about order updates, shipping notifications, account alerts, customer support replies, and other transactional messages. Message frequency may vary. Message & data rates may apply. Text HELP for assistance, reply STOP to opt out.`
+`I consent to receive recurring marketing text messages from RIOS LLC at the phone number provided about new product drops, member-only offers, limited restocks, promotional discount codes, and product updates. Message frequency varies, up to 10 messages per month. Message & data rates may apply. Reply HELP for help and STOP to opt out. Consent is not a condition of purchase.`
 
 ## Sample Messages
 
-Use sample messages that look like real customer communication and match the site. Do not use “hidden opportunities,” “black box,” or vague language.
+Use only marketing samples. Do not use support, order, shipping, or account samples for this campaign.
 
-### Sample Message 1: Product Drop
+### Sample Message 1
 
-`David, it's Maya from RIOS LLC. Our new product drop is now live and VIP members have early access. View it here: [link]. Reply STOP to opt out.`
+`RIOS LLC: New product drop is now live for VIP members. View the latest release here: [link]. Reply STOP to opt out or HELP for help.`
 
-### Sample Message 2: Member Offer
+### Sample Message 2
 
-`David, it's Maya from RIOS LLC. VIP members get 15% off select products today with code VIP15. Shop here: [link]. Reply STOP to opt out.`
+`RIOS LLC: VIP members get 15% off select products today with code VIP15. Shop the offer here: [link]. Reply STOP to opt out or HELP for help.`
 
-### Sample Message 3: Restock Alert
+### Sample Message 3
 
-`David, it's Maya from RIOS LLC. A popular item you may like is back in stock. Shop now while supplies last: [link]. Reply STOP to opt out.`
+`RIOS LLC: Limited restock alert. Select customer favorites are available again while supplies last: [link]. Reply STOP to opt out or HELP for help.`
 
-### Sample Message 4: Order Update
+### Sample Message 4
 
-`David, it's Maya from RIOS LLC. Your order has shipped and is on the way. Track it here: [link]. Reply STOP to opt out.`
-
-### Sample Message 5: Customer Support Reply
-
-`David, it's Maya from RIOS LLC. We received your support request and our team has updated your case. Reply HELP for help or STOP to opt out.`
+`RIOS LLC: New seasonal offers are available for VIP members this week. See current deals here: [link]. Reply STOP to opt out or HELP for help.`
 
 ## Opt-In Confirmation Message
 
-Use this as the opt-in confirmation / welcome message if the form asks for it:
+Use this if HighLevel asks for an opt-in confirmation message:
 
-`RIOS LLC: You are subscribed to text messages based on the options you selected. Msg frequency varies. Msg & data rates may apply. Reply HELP for help, STOP to opt out.`
+`RIOS LLC: You are subscribed to VIP List marketing texts. Msg frequency varies, up to 10 msgs/month. Msg & data rates may apply. Reply STOP to opt out or HELP for help.`
 
-## Help Message
+## HELP Message
 
 `RIOS LLC: For help, email Hello@rioscontact.me or call (213) 663-0834. Reply STOP to opt out.`
 
-## Opt-Out Message
+## STOP Message
 
 `RIOS LLC: You have successfully unsubscribed and will no longer receive text messages from this number.`
 
-## Program Summary For Reviewers
+## What To Avoid
 
-Use this if you need a shorter plain-English explanation:
+- Do not use the old mixed description.
+- Do not include support requests as a sample message.
+- Do not mention order confirmations, shipping notifications, account alerts, customer service replies, transactional messages, or customer care in this marketing campaign.
+- Do not submit `https://www.rios-llc.com/` if `https://rios-llc.com/` is the canonical live URL.
+- Do not write that opt-in is available through any method other than the public website form.
+- Do not say consent is shared with third parties.
 
-`RIOS LLC is an online retail business. Customers voluntarily sign up on our public website to receive text messages from RIOS LLC about product drops, member-only offers, restocks, order updates, shipping notifications, account alerts, and customer support. Consent is collected through separate marketing and non-marketing checkboxes, and users may opt out at any time by replying STOP.`
+## Why This Fix Addresses The Rejection
 
-## Screenshots To Upload With The Resubmission
-
-- Homepage showing business name, form, and program description
-- Consent section with both checkbox texts fully visible
-- Footer or visible links to Terms of Service and Privacy Policy
-- About page showing that RIOS LLC is a retail business
-- Terms of Service page
-- Privacy Policy page
-
-## Final Consistency Checklist
-
-- Use `RIOS LLC` everywhere, not “the business” or “the company”
-- Use `retail business` or `online retail business`, not vague opportunity language
-- Do not mention appointments, scheduling, lead gen, brokers, or affiliate marketing
-- Do not say users must check both SMS boxes
-- Make sure every sample message includes `RIOS LLC` and `STOP`
-- Make sure the campaign description, sample messages, website, privacy policy, and terms all describe the same message types
-- Make sure the URL you submit is the live homepage: `https://rios-llc.com/`
+- `30886 Invalid campaign description`: the campaign is now one clear `MARKETING` use case instead of a mixed marketing/transactional/customer-care description.
+- `30896 Opt-in error`: the opt-in flow now points to a public proof page, lists the only opt-in method, shows the exact checkbox language, links Privacy Policy and Terms of Service, and states that SMS opt-in data is not shared with third parties.

@@ -10,7 +10,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const emailInput = document.getElementById('email');
     const phoneInput = document.getElementById('phone');
     const consentMarketingCheckbox = document.getElementById('consentMarketing');
-    const consentNonMarketingCheckbox = document.getElementById('consentNonMarketing');
     const signupIntro = document.getElementById('signupIntro');
     const successState = document.getElementById('signupSuccessState');
 
@@ -73,17 +72,16 @@ document.addEventListener('DOMContentLoaded', function() {
             // Collect form data with explicit consent verification
             const consentTimestamp = new Date().toISOString();
             const marketingChecked = consentMarketingCheckbox.checked;
-            const nonMarketingChecked = consentNonMarketingCheckbox.checked;
             const formData = {
                 firstName: firstNameInput.value.trim(),
                 lastName: lastNameInput.value.trim(),
                 email: emailInput.value.trim(),
                 phone: phoneInput.value.trim(),
-                consent: marketingChecked || nonMarketingChecked,
+                consent: marketingChecked,
                 consentMarketing: marketingChecked,
-                consentNonMarketing: nonMarketingChecked,
+                consentNonMarketing: false,
                 consentTimestamp: consentTimestamp,
-                optInMethod: 'web_form_single_or_dual_checkbox',
+                optInMethod: 'web_form_marketing_checkbox',
                 optInSource: window.location.href,
                 ipAddress: 'recorded_on_server', // In production, capture actual IP
                 timestamp: consentTimestamp
@@ -94,15 +92,13 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Store consent record for A2P verification
             const labelMarketing = document.getElementById('labelConsentMarketing');
-            const labelNonMarketing = document.getElementById('labelConsentNonMarketing');
-            const consentSnapshot = [
-                '[Marketing] ' + (labelMarketing ? labelMarketing.textContent.trim() : ''),
-                '[Non-marketing] ' + (labelNonMarketing ? labelNonMarketing.textContent.trim() : '')
-            ].join(' | ');
+            const consentSnapshot = marketingChecked
+                ? '[Marketing] ' + (labelMarketing ? labelMarketing.textContent.trim() : '')
+                : '[No SMS consent selected] User submitted the form without checking the marketing SMS consent box.';
             const consentRecord = {
                 phoneNumber: formData.phone,
-                consentGiven: marketingChecked || nonMarketingChecked,
-                consentMethod: 'web_form_single_or_dual_checkbox',
+                consentGiven: marketingChecked,
+                consentMethod: 'web_form_marketing_checkbox',
                 consentTimestamp: consentTimestamp,
                 consentText: consentSnapshot,
                 userAgent: navigator.userAgent,
@@ -122,31 +118,21 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     function showSubmissionState(formData) {
-        const selectedPrograms = [];
         if (formData.consentMarketing) {
-            selectedPrograms.push('marketing messages about product drops, member-only offers, restocks, and product updates');
-        }
-        if (formData.consentNonMarketing) {
-            selectedPrograms.push('non-marketing messages about orders, shipping, account alerts, and customer support');
-        }
-        const hasSmsConsent = selectedPrograms.length > 0;
-        const programCopy = selectedPrograms.join(' and ');
-
-        if (hasSmsConsent) {
             successState.innerHTML = `
                 <h2>You're Successfully Enrolled</h2>
-                <p><strong>Program Description:</strong> You are now enrolled in the RIOS LLC VIP List program for ${programCopy}, based on the consent you provided.</p>
+                <p><strong>Program Description:</strong> You are now enrolled in the RIOS LLC VIP List marketing SMS program for product drops, member-only offers, restock alerts, promotional discount codes, and product updates.</p>
                 <p><strong>Message Frequency:</strong> You may receive up to 10 messages per month. Message frequency may vary based on available opportunities.</p>
                 <p><strong>Message and data rates may apply.</strong></p>
                 <p><strong>Customer Care:</strong> For questions or support, contact us at <a href="mailto:Hello@rioscontact.me">Hello@rioscontact.me</a> or call <a href="tel:+12136630834">(213) 663-0834</a>.</p>
-                <p><strong>Opt-Out Instructions:</strong> You can opt out at any time by replying <strong>STOP</strong>, <strong>UNSUBSCRIBE</strong>, <strong>END</strong>, <strong>QUIT</strong>, <strong>CANCEL</strong>, or <strong>STOP ALL</strong> to any message you receive.</p>
+                <p><strong>Opt-Out Instructions:</strong> You can opt out at any time by replying <strong>STOP</strong> to any message you receive.</p>
                 <p><strong>Help:</strong> Reply <strong>HELP</strong> for assistance.</p>
             `;
         } else {
             successState.innerHTML = `
                 <h2>Thanks, Your Information Was Received</h2>
                 <p>You submitted the form without selecting an SMS consent option, so you are <strong>not</strong> opted in to text messages from RIOS LLC.</p>
-                <p>If you want to receive text updates in the future, submit the form again and select marketing, non-marketing, or both SMS consent options.</p>
+                <p>If you want to receive marketing text updates in the future, submit the form again and select the SMS consent checkbox.</p>
                 <p><strong>Customer Care:</strong> For questions, contact <a href="mailto:Hello@rioscontact.me">Hello@rioscontact.me</a> or call <a href="tel:+12136630834">(213) 663-0834</a>.</p>
             `;
         }

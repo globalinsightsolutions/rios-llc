@@ -15,6 +15,11 @@
       "source": "/about",
       "destination": "/about.html",
       "permanent": true
+    },
+    {
+      "source": "/a2p-opt-in-proof",
+      "destination": "/a2p-opt-in-proof.html",
+      "permanent": true
     }
   ],
   "headers": [
@@ -37,4 +42,3 @@
     }
   ]
 }
-

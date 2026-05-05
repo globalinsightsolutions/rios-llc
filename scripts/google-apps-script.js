@@ -33,7 +33,7 @@ function doPost(e) {
         consentNonMarketing: e.parameter.consentNonMarketing || '',
         consentSnapshot: e.parameter.consentSnapshot || '',
         consentTimestamp: e.parameter.consentTimestamp || '',
-        optInMethod: e.parameter.optInMethod || 'web_form_single_or_dual_checkbox',
+        optInMethod: e.parameter.optInMethod || 'web_form_marketing_checkbox',
         optInSource: e.parameter.optInSource || '',
         userAgent: e.parameter.userAgent || '',
         ipAddress: e.parameter.ipAddress || ''
@@ -53,7 +53,7 @@ function doPost(e) {
     const consentNonMarketing = (data.consentNonMarketing === true || data.consentNonMarketing === 'true' || data.consentNonMarketing === 'Yes') ? 'Yes' : 'No';
     const consentSnapshot = data.consentSnapshot || '';
     const consentTimestamp = data.consentTimestamp || '';
-    const optInMethod = data.optInMethod || 'web_form_single_or_dual_checkbox';
+    const optInMethod = data.optInMethod || 'web_form_marketing_checkbox';
     const sourceUrl = data.optInSource || '';
     const userAgent = data.userAgent || '';
     const ipAddress = data.ipAddress || '';
